@@ -14,22 +14,22 @@ My idea is to build a bank system for account management.
 
 ## Subklasser (minst tre)
 
-1. Accounts - Manages different types of accounts (e.g., savings, checking, business).
-2. AccountUser - Manages the user's name, personal number, and connection to accounts.
+1. AccountsDetails - Manages different types of accounts (e.g., savings, checking, business).
+2. AccountUsers - Manages the user's name, personal number, and connection to accounts.
 3. BankDetails - Manages the bank's name, address, and contact information.
 
 
 ## Interface
 
-- Namn: Transactions
+- Namn: TransactionsInterface
 - Metod(er): 
   - deposit()
   - withdraw()
 - Implementeras av (minst två subklasser): 
-  - Accounts
-  - AccountUser
+  - AccountsDetails
+  - AccountUsers
 
-## Meny
+## MenuClass
 
 Add user, remove user, search user, deposit money, withdraw money, show account info.
 
