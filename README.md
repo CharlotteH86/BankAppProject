@@ -1,4 +1,3 @@
 # BankAppProject
 Project for Java Dev26
-
-text
+Solo-project created by Charlotte Holst.
