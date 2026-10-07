@@ -1,4 +1,4 @@
-public class Account {
+public abstract class Account {
     // Superklass
     protected String accountNumber;
     protected double balance;
