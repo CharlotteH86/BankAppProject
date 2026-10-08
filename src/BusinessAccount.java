@@ -1,21 +1,30 @@
+﻿/** Business account: every withdrawal costs a fixed transaction fee. **/
 public class BusinessAccount extends Account implements TransactionsInterface {
-    public BusinessAccount(String accountNumber, double balance) {
+    private double transactionFee;
+
+    public BusinessAccount(String accountNumber, double balance, double transactionFee) {
         super(accountNumber, balance);
+        if (transactionFee < 0) {
+            throw new IllegalArgumentException("Transaction fee cannot be negative");
+        }
+        this.transactionFee = transactionFee;
     }
 
-    @Override
-    public void deposit(double amount) {
-        balance += amount;
-    }
     @Override
     public void withdraw(double amount) {
         if (amount <= 0) {
             throw new IllegalArgumentException("Amount must be greater than zero");
         }
-        if (balance >= amount) {
-            balance -= amount;
-        } else {
-            throw new IllegalArgumentException("Insufficient funds");
+        if (amount + transactionFee > balance) {
+            throw new IllegalArgumentException("Insufficient funds (including fee)");
         }
+        balance -= amount + transactionFee;
+    }
+
+    @Override
+    public void showInfo() {
+        System.out.println("[Business account]");
+        super.showInfo();
+        System.out.println("Transaction fee: " + transactionFee);
     }
 }
